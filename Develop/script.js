@@ -11,23 +11,24 @@ $(document).ready(function() {
     //[2020, 03, 03, 7, 0] // is this how you carete a MOMENT that has the hour calling moment(ARRAY)???
 
     let times = [
-        moment().set('hour', 8).set('minute', 0),
-        moment().set('hour', 9).set('minute', 0),
-        moment().set('hour', 10).set('minute', 0),
-        moment().set('hour', 11).set('minute', 0),
-        moment().set('hour', 12).set('minute', 0),
-        moment().set('hour', 13).set('minute', 0),
-        moment().set('hour', 14).set('minute', 0),
-        moment().set('hour', 15).set('minute', 0),
-        moment().set('hour', 16).set('minute', 0),
-        moment().set('hour', 17).set('minute', 0), 
-        moment().set('hour', 18).set('minute', 0), 
-        moment().set('hour', 19).set('minute', 0), 
-        moment().set('hour', 20).set('minute', 0), 
+        moment().set('hour', 8).set('minute', 0).set('second', 0).set('millisecond', 0),
+        moment().set('hour', 9).set('minute', 0).set('second', 0).set('millisecond', 0),
+        moment().set('hour', 10).set('minute', 0).set('second', 0).set('millisecond', 0),
+        moment().set('hour', 11).set('minute', 0).set('second', 0).set('millisecond', 0),
+        moment().set('hour', 12).set('minute', 0).set('second', 0).set('millisecond', 0),
+        moment().set('hour', 13).set('minute', 0).set('second', 0).set('millisecond', 0),
+        moment().set('hour', 14).set('minute', 0).set('second', 0).set('millisecond', 0),
+        moment().set('hour', 15).set('minute', 0).set('second', 0).set('millisecond', 0),
+        moment().set('hour', 16).set('minute', 0).set('second', 0).set('millisecond', 0),
+        moment().set('hour', 17).set('minute', 0).set('second', 0).set('millisecond', 0),
+        moment().set('hour', 18).set('minute', 0).set('second', 0).set('millisecond', 0),
+        moment().set('hour', 19).set('minute', 0).set('second', 0).set('millisecond', 0), 
+        moment().set('hour', 20).set('minute', 0).set('second', 0).set('millisecond', 0), 
+        moment().set('hour', 21).set('minute', 0).set('second', 0).set('millisecond', 0),
+        moment().set('hour', 22).set('minute', 0).set('second', 0).set('millisecond', 0)
     ];
 
-
-        moment().set('hour', 20).set('minute', 0)    // MAJOR TASK #1: DYNAMICALLY CREATE BUTTONS
+  // MAJOR TASK #1: DYNAMICALLY CREATE BUTTONS
     // =================================================================================
 
     console.log(currentTime.format());
@@ -49,17 +50,17 @@ $(document).ready(function() {
         row.addClass("row");
         rowLabel.addClass("hour");
 
-        if (currentTime.diff(times[i], 'hours') < 0) {
-            rowTimeSlot.addClass("past");
-        } else if (currentTime.diff(times[i], 'hours') === 0) {
+        if (currentTime.set('minute', 0).set('second', 0).set('millisecond', 0).diff(times[i], 'hours') < 0 ) {
+            rowTimeSlot.addClass("future");
+        } else if (currentTime.set('minute', 0).set('second', 0).set('millisecond', 0).diff(times[i], 'hours') === 0) {
             rowTimeSlot.addClass("present");
         } else {
-            rowTimeSlot.addClass("future");
+            rowTimeSlot.addClass("past");
         }
 
         let timeForThisI = moment(times[i]);
 
-        console.log(timeForThisI.format());
+        console.log(currentTime.diff(times[i], 'hours'));
 
         rowButton.addClass("saveBtn");
         rowTextInput.addClass("textarea");
