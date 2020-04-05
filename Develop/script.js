@@ -58,16 +58,15 @@ $(document).ready(function() {
             rowTimeSlot.addClass("past");
         }
 
-        let timeForThisI = moment(times[i]);
-
-        console.log(currentTime.diff(times[i], 'hours'));
-
         rowButton.addClass("saveBtn");
         rowTextInput.addClass("textarea");
 
-        rowTimeSlot.attr("slot", times[i]);
-        rowButton.attr("slot", times[i]);
-
+        rowTextInput.attr("slot", times[i].format("LT"));
+        rowTextInput.attr("id", times[i].format("LT"));
+        rowButton.attr("slot", times[i].format("LT"));
+        
+        rowTextInput.text(localStorage.getItem(times[i].format("LT")));
+        
         rowTimeSlot.append(rowTextInput);
         row.append(rowLabel);
         row.append(rowTimeSlot);
@@ -77,32 +76,20 @@ $(document).ready(function() {
 
     }
 
-    // Be sure to test that your code works for this major task, before proceeding to the next one!
+       // Be sure to test that your code works for this major task, before proceeding to the next one!
 
     // MAJOR TASK #2: ATTACH ON-CLICK EVENTS TO "LETTER" BUTTONS
     // =================================================================================
 
     // 7. Create an "on-click" event attached to the ".letter-button" class.
-    // $(".letter-button").on("click", function() {
+    $(".saveBtn").on("click", function() {
+        
+       let slotId = $(this).attr("slot");
 
-    //     // Inside the on-click event...
+       localStorage.setItem(slotId, document.getElementById(slotId).value);
+    
 
-    //     // 8. Create a variable called "fridgeMagnet" and set the variable equal to a new div.
-    //     var fridgeMagnet = $("<div>");
-
-    //     // 9. Give each "fridgeMagnet" the following classes: "letter fridge-color".
-    //     fridgeMagnet.addClass("letter fridge-color");
-
-    //     // 10. Then chain the following code onto the "fridgeMagnet" variable: .text($(this).attr("data-letter"))
-    //     // attr acts as both a setter and a getter for attributes depending on whether we supply one argument or two
-    //     // NOTE: There IS a $(data) jQuery method, but it doesn't do what you'd expect. So just use attr.
-    //     fridgeMagnet.text($(this).attr("data-letter"));
-    //     console.log($(this).attr("data-letter"));
-    //     // 11. Lastly append the fridgeMagnet variable to the "#display" div (provided);
-    //     // Again you can see we use that find, and once its found we append the item
-    //     $("#display").append(fridgeMagnet);
-
-    // });
+    });
 
     // // Be sure to test that your code works for this major task, before proceeding to the next one!
 

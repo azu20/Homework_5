@@ -5,10 +5,12 @@ body {
   line-height: 1;
 }
 
-table{
-  
-  float: left;
+.container {
+  text-align: center;
+  margin: auto;
+  left: 100px;
 }
+
 textarea{
   background: transparent;
   border: none;
