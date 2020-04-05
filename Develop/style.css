@@ -1,9 +1,14 @@
 body {
+  background: url('https://wallpapercave.com/wp/y6tCxQG.jpg') no-repeat center center fixed;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
 }
 
+table{
+  
+  float: left;
+}
 textarea{
   background: transparent;
   border: none;

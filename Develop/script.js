@@ -1,15 +1,35 @@
 $(document).ready(function() {
+    let currentTime = moment();
+    let momentForLabels = moment();
 
-    $("#currentDay").text(moment().format("LL"));
+    console.log(moment().set('hour', 17).format("LT"));
+
+    $("#currentDay").text(currentTime.format("LL"));
     // Here we are provided an initial array of letters.
     // Use this array to dynamically create buttons on the screen.
 
     //[2020, 03, 03, 7, 0] // is this how you carete a MOMENT that has the hour calling moment(ARRAY)???
 
-    let times = ["08:00 am", "09:00 am", "10:00 am", "11:00 am", "12:00 pm", "1:00 pm", "2:00 pm", "3:00 pm", "4:00 pm", "5:00 pm"];
-    // MAJOR TASK #1: DYNAMICALLY CREATE BUTTONS
+    let times = [
+        moment().set('hour', 8).set('minute', 0),
+        moment().set('hour', 9).set('minute', 0),
+        moment().set('hour', 10).set('minute', 0),
+        moment().set('hour', 11).set('minute', 0),
+        moment().set('hour', 12).set('minute', 0),
+        moment().set('hour', 13).set('minute', 0),
+        moment().set('hour', 14).set('minute', 0),
+        moment().set('hour', 15).set('minute', 0),
+        moment().set('hour', 16).set('minute', 0),
+        moment().set('hour', 17).set('minute', 0), 
+        moment().set('hour', 18).set('minute', 0), 
+        moment().set('hour', 19).set('minute', 0), 
+        moment().set('hour', 20).set('minute', 0), 
+    ];
+
+
+        moment().set('hour', 20).set('minute', 0)    // MAJOR TASK #1: DYNAMICALLY CREATE BUTTONS
     // =================================================================================
-    let currentTime = moment();
+
     console.log(currentTime.format());
     // 1. Create a for-loop to iterate through the letters array.
     for (let i = 0; i < times.length; i++) {
@@ -23,12 +43,19 @@ $(document).ready(function() {
         let rowTextInput = $("<textarea>");
         let rowButton = $("<td>");
 
-        rowLabel.text(times[i]);
+        rowLabel.text(times[i].format("LT"));
         rowButton.text("Save");
 
         row.addClass("row");
         rowLabel.addClass("hour");
-        rowTimeSlot.addClass("time-block description");
+
+        if (currentTime.diff(times[i], 'hours') < 0) {
+            rowTimeSlot.addClass("past");
+        } else if (currentTime.diff(times[i], 'hours') === 0) {
+            rowTimeSlot.addClass("present");
+        } else {
+            rowTimeSlot.addClass("future");
+        }
 
         let timeForThisI = moment(times[i]);
 
