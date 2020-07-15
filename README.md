@@ -1,8 +1,12 @@
 # 05 Third-Party APIs: Work Day Scheduler
 
-Create a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+I have created a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
-You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
+I will use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
+
+## Link to Deployed website: 
+
+ https://azu20.github.io/Work-Day-Scheduler/
 
 ## User Story
 
@@ -36,8 +40,8 @@ The following animation demonstrates the application functionality:
 
 ### Challenges: 
 
-This assignemtn was a good way to incorporate everything we learned, although there are some concepts that I still 
-have to work on, I was able to figure it out and complete the assignement. In addition, incorporating the Moment.js 
-library, time consuming and challenging. Ironically the one thing I couldn't figure out after completing my assignment was to center the table. Itn's not aesthetically nice, but it functions. :-) 
+This assignment was a good way to incorporate everything we learned, although there are some concepts that I still 
+have to work on, I was able to figure it out and complete the assignment. In addition, incorporating the Moment.js 
+library, time consuming and challenging. Ironically the one thing I couldn't figure out after completing my assignment was to center the table. It's not aesthetically nice, but it functions. :-) 
 
 
